@@ -1,345 +1,746 @@
-# 🔌 TR Monitoring Solution
+# ⚡ Enterprise Transformer Monitoring Dashboard
 
 [![.NET](https://img.shields.io/badge/.NET-6.0-512BD4?logo=dotnet&logoColor=white)](https://dotnet.microsoft.com/)
 [![ASP.NET Core](https://img.shields.io/badge/ASP.NET%20Core-6.0-512BD4?logo=dotnet&logoColor=white)](https://dotnet.microsoft.com/apps/aspnet)
 [![Blazor](https://img.shields.io/badge/Blazor-6.0-512BD4?logo=blazor&logoColor=white)](https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor)
 [![Entity Framework Core](https://img.shields.io/badge/EF%20Core-6.0-512BD4?logo=dotnet&logoColor=white)](https://docs.microsoft.com/ef/core/)
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Supported-336791?logo=postgresql&logoColor=white)](https://www.postgresql.org/)
+[![SignalR](https://img.shields.io/badge/SignalR-Real--time-0078D4?logo=microsoft&logoColor=white)](https://dotnet.microsoft.com/apps/aspnet/signalr)
+[![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?logo=docker&logoColor=white)](https://www.docker.com/)
 
-변압기(TRansformer) 모니터링 및 이상 탐지 솔루션
+Real-time transformer monitoring and anomaly detection solution built with ASP.NET Core, Blazor, and SignalR for industrial power systems management.
 
-## 📖 개요
+## 📖 **Overview**
 
-변압기 상태를 실시간으로 모니터링하고, 이상 발생 시 알림을 제공하는 .NET 기반 통합 솔루션입니다.
+Enterprise-grade transformer monitoring solution that provides real-time status monitoring, automated anomaly detection, and intelligent alerting for industrial power systems. Built with modern .NET technologies for scalable and reliable power infrastructure management.
 
-### ✨ 주요 기능
+## 🏗️ **Architecture**
 
-- 🌡️ **실시간 온도 모니터링**: 변압기 온도 실시간 수집 및 모니터링
-- 📧 **스마트 알림 시스템**: 이상 감지 시 이메일/SMS 자동 알림
-- 📊 **통합 대시보드**: 기업/위치별 맞춤형 대시보드 제공
-- 🔄 **자동 장치 관리**: IoT 디바이스 자동 재부팅 및 상태 관리
-- 📷 **열화상 카메라 연동**: 열화상 데이터 통합 분석
-- 📈 **데이터 분석**: 히스토리 데이터 기반 트렌드 분석
-- ⚠️ **예측 유지보수**: AI 기반 이상 징후 사전 감지
+```text
+┌─────────────────────────────────────────────────────────────┐
+│                    Industrial Field                         │
+├─────────────────┬─────────────────┬─────────────────────────┤
+│  Transformers   │ Thermal Cameras │      IoT Sensors        │
+│                 │                 │                         │
+│ • Temperature   │ • Heat Images   │ • Status Monitoring     │
+│ • Load Current  │ • Thermal Maps  │ • Auto Diagnostics      │
+└─────────────────┴─────────────────┴─────────────────────────┘
+                            │
+                            ▼
+┌─────────────────────────────────────────────────────────────┐
+│                 Data Collection Layer                       │
+├─────────────────────────────────────────────────────────────┤
+│ • MQTT Broker          • Data Import Service                │
+│ • Real-time Ingestion  • Background Processing              │
+└─────────────────────────────────────────────────────────────┘
+                            │
+                            ▼
+┌─────────────────────────────────────────────────────────────┐
+│              ASP.NET Core Application Stack                 │
+├─────────────────────────────────────────────────────────────┤
+│ • Blazor Dashboard     • MVC Web App                        │
+│ • SignalR Hub         • RESTful API                         │
+│ • Business Logic      • Alert Engine                        │
+└─────────────────────────────────────────────────────────────┘
+                            │
+                            ▼
+┌─────────────────────────────────────────────────────────────┐
+│                   Data Storage Layer                        │
+├─────────────────────────────────────────────────────────────┤
+│ • PostgreSQL Database  • Redis Cache                        │
+│ • Time-series Data    • Session Storage                     │
+└─────────────────────────────────────────────────────────────┘
+```
 
-## 🛠️ 기술 스택
+## ⚡ **Key Features**
 
-### Backend
+### 🌡️ **Real-time Monitoring**
 
-- **.NET 6.0**: Core framework
-- **ASP.NET Core MVC**: Web application
-- **Blazor Server**: Interactive dashboard
-- **Entity Framework Core**: ORM
-- **SignalR**: Real-time communication
+- **Temperature Tracking**: Continuous transformer temperature monitoring
+- **Load Analysis**: Real-time electrical load and current measurements
+- **Status Dashboard**: Live operational status with historical trends
+- **Multi-site Support**: Enterprise and location-specific dashboards
 
-### Frontend
+### 🚨 **Intelligent Alerting**
 
-- **Blazor Components**: Interactive UI components  
-- **Bootstrap 5**: Responsive design
-- **Chart.js**: Data visualization
-- **Three.js**: 3D monitoring views
+- **Smart Notifications**: Automated email/SMS alerts for anomaly detection
+- **Threshold Management**: Configurable alert thresholds and escalation rules
+- **Multi-channel Alerts**: Email, SMS, and dashboard notifications
+- **Alert Correlation**: AI-powered pattern recognition for predictive maintenance
 
-### Database
+### 📊 **Advanced Analytics**
 
-- **PostgreSQL**: Primary database
-- **Redis**: Caching & session storage
+- **Trend Analysis**: Historical data analysis and performance trending
+- **Thermal Integration**: Thermal camera data fusion and analysis
+- **Predictive Maintenance**: AI-based anomaly prediction and early warning
+- **Custom Reports**: Automated reporting and data export capabilities
 
-### Infrastructure
+### 🔧 **Device Management**
 
-- **Docker**: Containerization
-- **nginx**: Reverse proxy & load balancing
+- **IoT Device Control**: Automatic device rebooting and health management
+- **Remote Diagnostics**: Real-time device status and troubleshooting
+- **Firmware Updates**: Over-the-air firmware management
+- **Network Monitoring**: Device connectivity and communication health
 
-## 🖥️ 화면
+## 🛠️ **Technology Stack**
 
-### TrMontrgSrv.Web
+### **💻 Backend Technologies**
 
-변압기 모니터링 웹 솔루션
+| Component | Technology | Purpose |
+| ------ | ------ | ------ |
+| **Framework** | .NET 6.0 | Core application framework |
+| **Web Framework** | ASP.NET Core MVC | Web application and API |
+| **UI Framework** | Blazor Server | Interactive real-time dashboard |
+| **ORM** | Entity Framework Core | Database access and migrations |
+| **Real-time** | SignalR | Live data streaming and notifications |
+| **Background Services** | Hosted Services | Data processing and device management |
 
-![Main](../Image/TrMontgSrv/Main.PNG)
+### **🎨 Frontend Technologies**
 
-![Plan Example](../Image/TrMontgSrv/Plan_ex.PNG)
-![Device Info](../Image/TrMontgSrv/DeviceInfo.PNG)
-![Device Detail](../Image/TrMontgSrv/DeviceInfo_detail.PNG)
-![Device Chart](../Image/TrMontgSrv/device_chart.PNG)
-![Device Issue](../Image/TrMontgSrv/device_issue.PNG)
-![Thermal Camera](../Image/TrMontgSrv/temp_camera.PNG)
+| Component | Technology | Purpose |
+| ------ | ------ | ------ |
+| **UI Components** | Blazor Components | Interactive dashboard elements |
+| **Styling** | Bootstrap 5 | Responsive design system |
+| **Charts** | Chart.js | Data visualization and analytics |
+| **3D Views** | Three.js | 3D transformer monitoring displays |
+| **Icons** | Font Awesome | Professional iconography |
 
-### TrMontrgSrv.Dashboard
+### **🗄️ Data & Storage**
 
-![Dashboard](img/dashboard.png)
+| Component | Technology | Purpose |
+| ------ | ------ | ------ |
+| **Primary Database** | PostgreSQL 12+ | Transactional data and configuration |
+| **Caching** | Redis | Session storage and performance optimization |
+| **File Storage** | Local/Cloud Storage | Thermal images and reports |
 
-## 🚀 빠른 시작
+### **🐳 Infrastructure & DevOps**
 
-### 📋 사전 요구사항
+| Component | Technology | Purpose |
+| ------ | ------ | ------ |
+| **Containerization** | Docker | Application packaging and deployment |
+| **Reverse Proxy** | Nginx | Load balancing and SSL termination |
+| **Process Manager** | SystemD | Service lifecycle management |
+| **Monitoring** | Health Checks | Application health monitoring |
 
-- **.NET 6.0 SDK** 이상
-- **PostgreSQL 12** 이상  
-- **Redis** (캐싱용)
-- **Visual Studio 2022** 또는 **VS Code**
+## 🖥️ **User Interface Screenshots**
 
-### 📦 설치 및 실행
+### **📊 Main Dashboard - TrMontrgSrv.Web**
 
-1. **저장소 클론**
+Comprehensive transformer monitoring web solution with real-time data visualization and alerting.
+
+![Main Dashboard](./img/Main.PNG)
+*Main monitoring dashboard with live transformer status and system overview*
+
+### **📋 Monitoring Views**
+
+![Site Plan](./img/Plan_ex.PNG)
+*Site layout and transformer location overview*
+
+![Device Information](./img/DeviceInfo.PNG)
+*Detailed device information and configuration panel*
+
+![Device Details](./img/DeviceInfo_detail.PNG)
+*Comprehensive device status and operational parameters*
+
+### **📈 Analytics & Visualization**
+
+![Performance Charts](./img/device_chart.PNG)
+*Real-time performance charts and historical trend analysis*
+
+![Issue Management](./img/device_issue.PNG)
+*Alert management and issue tracking interface*
+
+![Thermal Monitoring](./img/temp_camera.PNG)
+*Thermal camera integration with heat map visualization*
+
+### **⚡ Interactive Dashboard - TrMontrgSrv.Dashboard**
+
+Blazor-powered real-time interactive dashboard with SignalR integration for live data updates.
+
+## 🚀 **Quick Start**
+
+### **📋 Prerequisites**
+
+- **.NET 6.0 SDK** or later
+- **PostgreSQL 12+** database server  
+- **Redis** server for caching and sessions
+- **Visual Studio 2022** or **VS Code** with C# extension
+
+### **📦 Installation & Setup**
+
+#### **1. Clone Repository**
 
 ```bash
-git clone https://github.com/your-org/tr-montrg.git
+git clone https://github.com/codingnanyong/tr-montrg.git
 cd tr-montrg
 ```
 
-2. **데이터베이스 설정**
+#### **2. Database Configuration**
 
-```bash
-# PostgreSQL 연결 문자열 설정
-# appsettings.json 파일에서 ConnectionStrings 섹션 수정
-```
-
-3. **의존성 설치 및 빌드**
-
-```bash
-dotnet restore
-dotnet build
-```
-
-4. **데이터베이스 마이그레이션**
-
-```bash
-dotnet ef database update --project TrMontrgSrv.EF
-```
-
-5. **애플리케이션 실행**
-
-```bash
-# Web Application 실행
-dotnet run --project TrMontrgSrv.Web
-
-# Dashboard 실행 (다른 터미널에서)
-dotnet run --project TrMontrgSrv.Dashboard
-
-# WebAPI 실행 (다른 터미널에서)  
-dotnet run --project TrMontrgSrv.WebApi
-```
-
-### 🔧 환경 설정
-
-#### appsettings.json 예시
+Update connection strings in `appsettings.json`:
 
 ```json
 {
   "ConnectionStrings": {
-    "DefaultConnection": "Host=localhost;Database=tr_montrg;Username=your_user;Password=your_password"
+    "TrMontrgSrv": "Host=localhost;Port=5432;Database=tr_montrg_srv;Username=your_user;Password=your_password",
+    "TrMontrgSrvIdentity": "Host=localhost;Port=5432;Database=mi_identity;Username=your_user;Password=your_password"
+  }
+}
+```
+
+#### **3. Install Dependencies**
+
+```bash
+# Restore NuGet packages
+dotnet restore
+
+# Build solution
+dotnet build
+```
+
+#### **4. Database Migration**
+
+```bash
+# Apply Entity Framework migrations
+dotnet ef database update --project TrMontrgSrv.EF
+
+# Verify database creation
+dotnet ef database update --verbose --project TrMontrgSrv.EF
+```
+
+#### **5. Run Applications**
+
+**Multi-Application Startup:**
+
+```bash
+# Terminal 1: Web Application (MVC)
+dotnet run --project TrMontrgSrv.Web
+# Access: http://localhost:5000
+
+# Terminal 2: Interactive Dashboard (Blazor)
+dotnet run --project TrMontrgSrv.Dashboard
+# Access: http://localhost:5001
+
+# Terminal 3: REST API
+dotnet run --project TrMontrgSrv.WebApi
+# Access: http://localhost:7010
+```
+
+**Single Command Startup (Development):**
+
+```bash
+# Start all services simultaneously
+dotnet run --project TrMontrgSrv.Web &
+dotnet run --project TrMontrgSrv.Dashboard &
+dotnet run --project TrMontrgSrv.WebApi &
+```
+
+### **🔧 Configuration**
+
+#### **Complete appsettings.json Template**
+
+```json
+{
+  "ConnectionStrings": {
+    "TrMontrgSrv": "Host=localhost;Port=5432;Database=tr_montrg_srv;Username=postgres;Password=your_password",
+    "TrMontrgSrvIdentity": "Host=localhost;Port=5432;Database=mi_identity;Username=postgres;Password=your_password"
   },
   "Redis": {
-    "ConnectionString": "localhost:6379"
+    "ConnectionString": "localhost:6379",
+    "Database": 0,
+    "Timeout": 5000
   },
   "Email": {
     "SmtpHost": "smtp.gmail.com",
     "SmtpPort": 587,
     "Username": "your_email@gmail.com",
-    "Password": "your_app_password"
+    "Password": "your_app_password",
+    "EnableSsl": true,
+    "From": "TR Monitoring System <noreply@yourcompany.com>"
   },
   "IoT": {
     "MqttBroker": "localhost:1883",
-    "DeviceTimeout": 30000
-  }
-}
-```
-
-## 🏗️ 아키텍처
-
-### 프로젝트 구조
-
-```text
-tr-montrg/
-├── TrMontrgSrv.Web/              # 🌐 ASP.NET Core MVC Web Application
-├── TrMontrgSrv.WebApi/           # 🔌 RESTful Web API
-├── TrMontrgSrv.Dashboard/        # 📊 Blazor Interactive Dashboard  
-├── TrMontrgSrv.BLL/              # 💼 Business Logic Layer
-├── TrMontrgSrv.EF/               # 🗄️ Entity Framework Core + Migrations
-├── TrMontrgSrv.Model/            # 📋 Data Models & DTOs
-├── TrMontrgSrv.SL/               # 🔧 Service Layer
-├── TrMontrgSrv.AutoBtg/          # 🤖 Auto Batch Generator Service
-├── TrMontrgSrv.Helpers/          # 🛠️ Utility Helpers
-├── TrMontrgSrv.LoggerService/    # 📝 Logging Infrastructure
-├── TrDataImporterSvc/            # 📥 Data Import Background Service
-├── TrMontrgSrv.EF.Test/          # 🧪 Unit Tests
-└── TrMontrgSrv.sln               # 📁 Solution File
-```
-
-### 시스템 아키텍처
-
-```text
-┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│   Web Client    │    │   Dashboard     │    │   Mobile App    │
-│   (MVC)         │    │   (Blazor)      │    │   (Future)      │
-└─────────┬───────┘    └─────────┬───────┘    └─────────┬───────┘
-          │                      │                      │
-          └──────────────┬───────────────────────────────┘
-                         │
-              ┌─────────────────┐
-              │   Web API       │
-              │   (REST/SignalR)│
-              └─────────┬───────┘
-                        │
-              ┌─────────────────┐
-              │  Business Logic │
-              │     (BLL)       │
-              └─────────┬───────┘
-                        │
-         ┌──────────────┼──────────────┐
-         │              │              │
-┌─────────────┐ ┌─────────────┐ ┌─────────────┐
-│ PostgreSQL  │ │    Redis    │ │  IoT MQTT   │
-│  Database   │ │   Cache     │ │   Broker    │
-└─────────────┘ └─────────────┘ └─────────────┘
-```
-
-## 📡 API 엔드포인트
-
-### 🌡️ Temperature Monitoring
-
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | `/api/v1/temperatures` | 온도 데이터 조회 |
-| POST | `/api/v1/temperatures` | 온도 데이터 등록 |
-| GET | `/api/v1/temperatures/{deviceId}` | 특정 디바이스 온도 데이터 |
-| GET | `/api/v1/temperatures/alerts` | 온도 알림 목록 |
-
-### 📊 Device Management
-
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | `/api/v1/devices` | 디바이스 목록 조회 |
-| POST | `/api/v1/devices` | 새 디바이스 등록 |
-| PUT | `/api/v1/devices/{id}` | 디바이스 정보 수정 |
-| DELETE | `/api/v1/devices/{id}` | 디바이스 삭제 |
-| POST | `/api/v1/devices/{id}/reboot` | 디바이스 재부팅 |
-
-### 📈 Analytics
-
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | `/api/v1/analytics/dashboard` | 대시보드 데이터 |
-| GET | `/api/v1/analytics/trends` | 트렌드 분석 데이터 |
-| GET | `/api/v1/analytics/reports` | 리포트 생성 |
-
-## 🧪 테스트
-
-### 단위 테스트 실행
-
-```bash
-# 모든 테스트 실행
-dotnet test
-
-# 특정 프로젝트 테스트
-dotnet test TrMontrgSrv.EF.Test
-
-# 커버리지 포함
-dotnet test --collect:"XPlat Code Coverage"
-```
-
-### 통합 테스트
-
-```bash
-# API 테스트
-dotnet test TrMontrgSrv.WebApi.Test
-
-# 데이터베이스 테스트
-dotnet test TrMontrgSrv.EF.Test
-```
-
-## 🐳 Docker 배포
-
-```bash
-# Docker 이미지 빌드
-docker build -t tr-montrg-web -f TrMontrgSrv.Web/Dockerfile .
-docker build -t tr-montrg-api -f TrMontrgSrv.WebApi/Dockerfile .
-
-# Docker Compose로 전체 스택 실행
-docker-compose up -d
-```
-
-## 📊 모니터링 & 로깅
-
-### 로그 레벨 설정
-
-```json
-{
+    "DeviceTimeout": 30000,
+    "HeartbeatInterval": 60000,
+    "MaxRetries": 3
+  },
+  "Kestrel": {
+    "EndPoints": {
+      "Http": {
+        "Url": "http://0.0.0.0:7010"
+      }
+    }
+  },
   "Logging": {
     "LogLevel": {
       "Default": "Information",
       "Microsoft.AspNetCore": "Warning",
       "TrMontrgSrv": "Debug"
     }
+  },
+  "AllowedHosts": "*"
+}
+```
+
+#### **Environment Variables (Production)**
+
+```bash
+# Database Configuration
+export TR_DB_HOST=your_postgres_host
+export TR_DB_PASSWORD=your_secure_password
+
+# Redis Configuration  
+export REDIS_CONNECTION_STRING=your_redis_host:6379
+
+# Email Configuration
+export SMTP_PASSWORD=your_smtp_password
+
+# IoT Configuration
+export MQTT_BROKER=your_mqtt_broker_host
+```
+
+## 🏗️ **Project Architecture**
+
+### **📁 Solution Structure**
+
+```text
+tr-montrg/
+├── 🌐 TrMontrgSrv.Web/              # ASP.NET Core MVC Web Application
+│   ├── Controllers/                 # MVC controllers for web interface
+│   ├── Views/                       # Razor views and layouts
+│   └── wwwroot/                     # Static assets (CSS, JS, images)
+├── 🔌 TrMontrgSrv.WebApi/           # RESTful Web API
+│   ├── Controllers/                 # API controllers
+│   ├── Infrastructure/              # API infrastructure and middleware
+│   └── Core/                        # API-specific business logic
+├── 📊 TrMontrgSrv.Dashboard/        # Blazor Interactive Dashboard  
+│   ├── Components/                  # Blazor components
+│   ├── Pages/                       # Dashboard pages
+│   └── Services/                    # Client-side services
+├── 💼 TrMontrgSrv.BLL/              # Business Logic Layer
+│   ├── Services/                    # Business services
+│   ├── Interfaces/                  # Service contracts
+│   └── Processors/                  # Data processing logic
+├── 🗄️ TrMontrgSrv.EF/               # Entity Framework Core + Migrations
+│   ├── Contexts/                    # Database contexts
+│   ├── Entities/                    # Entity models
+│   └── Migrations/                  # Database migrations
+├── 📋 TrMontrgSrv.Model/            # Data Models & DTOs
+│   ├── Entities/                    # Domain entities
+│   └── DTOs/                        # Data transfer objects
+├── 🔧 TrMontrgSrv.SL/               # Service Layer
+│   └── Interfaces/                  # Service layer contracts
+├── 🤖 TrMontrgSrv.AutoBtg/          # Auto Batch Generator Service
+│   └── Services/                    # Background processing services
+├── 🛠️ TrMontrgSrv.Helpers/          # Utility Helpers
+│   └── Extensions/                  # Extension methods and utilities
+├── 📝 TrMontrgSrv.LoggerService/    # Logging Infrastructure
+│   └── Interfaces/                  # Logging contracts
+├── 📥 TrDataImporterSvc/            # Data Import Background Service
+│   └── Services/                    # Import processing services
+├── 🧪 TrMontrgSrv.EF.Test/          # Unit & Integration Tests
+│   └── Controllers/                 # Test suites
+└── 📁 TrMontrgSrv.sln               # Visual Studio Solution File
+```
+
+### **🔄 System Architecture**
+
+```text
+┌─────────────────────────────────────────────────────────────┐
+│                    Presentation Layer                       │
+├─────────────────┬─────────────────┬─────────────────────────┤
+│   Web Client    │   Dashboard     │    Mobile App           │
+│   (MVC)         │   (Blazor)      │    (Future)             │
+│                 │                 │                         │
+│ • Device Config │ • Real-time UI  │ • Push Notifications    │
+│ • User Mgmt     │ • Live Charts   │ • Offline Capability    │
+│ • Reports       │ • Alerts        │ • Remote Monitoring     │
+└─────────────────┴─────────────────┴─────────────────────────┘
+                            │
+                            ▼
+┌─────────────────────────────────────────────────────────────┐
+│                   Application Layer                         │
+├─────────────────────────────────────────────────────────────┤
+│ • ASP.NET Core Web API    • SignalR Real-time Hubs          │
+│ • Business Logic Layer    • Background Services             │
+│ • Authentication/Authorization • Caching & Performance      │
+└─────────────────────────────────────────────────────────────┘
+                            │
+                            ▼
+┌─────────────────────────────────────────────────────────────┐
+│                     Data Access Layer                       │
+├─────────────────────────────────────────────────────────────┤
+│ • Entity Framework Core   • Repository Pattern              │
+│ • Database Context        • Unit of Work                    │
+│ • Migration Management    • Query Optimization              │
+└─────────────────────────────────────────────────────────────┘
+                            │
+                            ▼
+┌─────────────────────────────────────────────────────────────┐
+│                   Infrastructure Layer                      │
+├─────────────────┬─────────────────┬─────────────────────────┤
+│   PostgreSQL    │      Redis      │     MQTT Broker         │
+│   Database      │     Cache       │                         │
+│                 │                 │                         │
+│ • Transactional │ • Session Store │ • IoT Communication     │
+│ • Time-series   │ • Performance   │ • Device Management     │
+│ • Reporting     │ • Real-time     │ • Data Streaming        │
+└─────────────────┴─────────────────┴─────────────────────────┘
+```
+
+## 📡 **REST API Endpoints**
+
+### **🌡️ Temperature Monitoring**
+
+| Method | Endpoint | Description | Response |
+| ------ | ------ | ------ | ------ |
+| **GET** | `/api/v1/temperatures` | Retrieve temperature readings | JSON array of temperature data |
+| **POST** | `/api/v1/temperatures` | Submit new temperature data | Created temperature record |
+| **GET** | `/api/v1/temperatures/{deviceId}` | Get device-specific temperature data | Device temperature history |
+| **GET** | `/api/v1/temperatures/alerts` | List temperature-based alerts | Active and historical alerts |
+
+### **📊 Device Management**
+
+| Method | Endpoint | Description | Response |
+| ------ | ------ | ------ | ------ |
+| **GET** | `/api/v1/devices` | List all monitored devices | JSON array of device information |
+| **POST** | `/api/v1/devices` | Register new monitoring device | Created device record |
+| **PUT** | `/api/v1/devices/{id}` | Update device configuration | Updated device information |
+| **DELETE** | `/api/v1/devices/{id}` | Remove device from monitoring | Deletion confirmation |
+| **POST** | `/api/v1/devices/{id}/reboot` | Remotely reboot IoT device | Reboot status and result |
+
+### **📈 Analytics & Reporting**
+
+| Method | Endpoint | Description | Response |
+| ------ | ------ | ------ | ------ |
+| **GET** | `/api/v1/analytics/dashboard` | Dashboard summary data | Real-time metrics and KPIs |
+| **GET** | `/api/v1/analytics/trends` | Historical trend analysis | Statistical trend data |
+| **GET** | `/api/v1/analytics/reports` | Generate custom reports | PDF/Excel report files |
+| **GET** | `/api/v1/analytics/health` | System health metrics | System performance data |
+
+### **🔔 Alert Management**
+
+| Method | Endpoint | Description | Response |
+| ------ | ------ | ------ | ------ |
+| **GET** | `/api/v1/alerts` | List all system alerts | JSON array of alerts |
+| **POST** | `/api/v1/alerts/acknowledge` | Acknowledge alert notification | Acknowledgment confirmation |
+| **GET** | `/api/v1/alerts/rules` | Get alert rule configuration | Alert threshold settings |
+| **PUT** | `/api/v1/alerts/rules/{id}` | Update alert thresholds | Updated rule configuration |
+
+### **📋 API Response Format**
+
+```json
+{
+  "success": true,
+  "data": {
+    "deviceId": "TR001",
+    "temperature": 65.5,
+    "timestamp": "2024-02-02T10:30:00Z",
+    "status": "normal"
+  },
+  "message": "Temperature data retrieved successfully",
+  "errors": []
+}
+```
+
+## 🧪 **Testing**
+
+### **Unit Testing**
+
+```bash
+# Run all tests
+dotnet test
+
+# Run specific project tests
+dotnet test TrMontrgSrv.EF.Test
+
+# Include code coverage
+dotnet test --collect:"XPlat Code Coverage"
+
+# Generate detailed coverage report
+dotnet test --collect:"XPlat Code Coverage" --results-directory TestResults
+```
+
+### **Integration Testing**
+
+```bash
+# API integration tests
+dotnet test TrMontrgSrv.WebApi.Test
+
+# Database integration tests
+dotnet test TrMontrgSrv.EF.Test
+
+# End-to-end testing
+dotnet test --filter Category=Integration
+```
+
+### **Performance Testing**
+
+```bash
+# Load testing with NBomber
+dotnet run --project TrMontrgSrv.LoadTest
+
+# Memory profiling
+dotnet run --project TrMontrgSrv.PerformanceAnalyzer
+```
+
+## 🐳 **Docker Deployment**
+
+### **Build Images**
+
+```bash
+# Build web application image
+docker build -t tr-montrg-web -f TrMontrgSrv.Web/Dockerfile .
+
+# Build API service image
+docker build -t tr-montrg-api -f TrMontrgSrv.WebApi/Dockerfile .
+
+# Build dashboard image
+docker build -t tr-montrg-dashboard -f TrMontrgSrv.Dashboard/Dockerfile .
+```
+
+### **Docker Compose Deployment**
+
+```bash
+# Start complete stack
+docker-compose up -d
+
+# Scale services
+docker-compose up -d --scale tr-montrg-api=3
+
+# View logs
+docker-compose logs -f tr-montrg-api
+```
+
+### **Production Deployment**
+
+```bash
+# Production environment
+docker-compose -f docker-compose.prod.yml up -d
+
+# With external database
+docker-compose -f docker-compose.prod.yml -f docker-compose.db.yml up -d
+```
+
+## 📊 **Monitoring & Observability**
+
+### **Logging Configuration**
+
+```json
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning", 
+      "TrMontrgSrv": "Debug",
+      "System.Net.Http.HttpClient": "Warning"
+    },
+    "Console": {
+      "LogLevel": {
+        "Default": "Information"
+      }
+    },
+    "EventLog": {
+      "LogLevel": {
+        "Default": "Warning"
+      }
+    }
   }
 }
 ```
 
-### Health Check 엔드포인트
+### **Health Check Endpoints**
 
-- **Web**: `GET /health`
-- **API**: `GET /api/health`  
-- **Database**: `GET /api/health/database`
-- **Redis**: `GET /api/health/redis`
+| Endpoint | Purpose | Response |
+| ------ | ------ | ------ |
+| `GET /health` | Overall application health | Health status summary |
+| `GET /api/health` | API service health check | Service availability |
+| `GET /api/health/database` | Database connectivity | PostgreSQL connection status |
+| `GET /api/health/redis` | Cache service health | Redis connectivity |
+| `GET /api/health/mqtt` | IoT broker connectivity | MQTT broker status |
 
-## 🔒 보안
+### **Metrics & Performance**
 
-- ✅ JWT 토큰 기반 인증
-- ✅ Role-based 권한 관리
-- ✅ HTTPS 강제 적용
-- ✅ CORS 정책 적용
-- ✅ SQL Injection 방지
-- ✅ XSS 보호
+- **Application Insights**: Performance monitoring and analytics
+- **Prometheus Metrics**: Custom metrics for monitoring
+- **SignalR Monitoring**: Real-time connection tracking
+- **Database Performance**: Query performance and optimization
 
-## 🚨 문제 해결
+## 🔒 **Security Features**
 
-### 일반적인 문제들
+### **Authentication & Authorization**
 
-#### **데이터베이스 연결 오류**
+- ✅ **JWT Token Authentication**: Secure stateless authentication
+- ✅ **Role-based Access Control**: Granular permission management
+- ✅ **Multi-factor Authentication**: Enhanced security for admin users
+- ✅ **Session Management**: Secure session handling with Redis
+
+### **Application Security**
+
+- ✅ **HTTPS Enforcement**: SSL/TLS encryption for all communications
+- ✅ **CORS Policy**: Cross-origin request protection
+- ✅ **SQL Injection Protection**: Parameterized queries and ORM safety
+- ✅ **XSS Protection**: Input validation and output encoding
+- ✅ **CSRF Protection**: Anti-forgery token validation
+
+### **Infrastructure Security**
+
+- ✅ **Network Segmentation**: Isolated network zones for services
+- ✅ **Container Security**: Secure Docker image configurations
+- ✅ **Database Security**: Encrypted connections and user isolation
+- ✅ **API Rate Limiting**: DDoS protection and abuse prevention
+
+## 🚨 **Troubleshooting**
+
+### **Common Issues**
+
+#### **Database Connection Errors**
 
 ```bash
-# PostgreSQL 서비스 확인
+# Check PostgreSQL service status (Linux)
 sudo systemctl status postgresql
 
-# 연결 문자열 확인
-dotnet ef database update --verbose
+# Check PostgreSQL service status (Windows)
+net start postgresql-x64-12
+
+# Verify database connectivity
+dotnet ef database update --verbose --project TrMontrgSrv.EF
+
+# Test connection string
+psql -h localhost -U postgres -d tr_montrg_srv
 ```
 
-#### **포트 충돌**
+#### **Port Conflicts**
 
 ```bash
-# 사용 중인 포트 확인
+# Check ports in use (Linux/macOS)
 netstat -tulpn | grep :5000
+lsof -i :5000
+
+# Check ports in use (Windows)
+netstat -ano | findstr :5000
 ```
 
-## 🤝 기여하기
+#### **SignalR Connection Issues**
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+```bash
+# Check WebSocket support
+curl -I -N -H "Connection: Upgrade" -H "Upgrade: websocket" http://localhost:5000/monitoringHub
 
-### 개발 가이드라인
+# Verify CORS settings for SignalR
+# Update appsettings.json with correct origins
+```
 
-- **코드 스타일**: EditorConfig 및 StyleCop 규칙 준수
-- **커밋 메시지**: [Conventional Commits](https://www.conventionalcommits.org/) 형식 사용
-- **테스트**: 새로운 기능에 대한 단위 테스트 필수
-- **문서화**: XML 주석 및 README 업데이트
+#### **Redis Cache Problems**
 
-## 📞 지원
+```bash
+# Test Redis connectivity
+redis-cli ping
 
-- **이슈 리포팅**: [GitHub Issues](https://github.com/codingnanyong/tr-montrg/issues)
-- **질문 & 토론**: [GitHub Discussions](https://github.com/codingnanyong/tr-montrg/discussions)
+# Check Redis configuration
+redis-cli info
 
-## 📋 로드맵
+# Clear cache if needed
+redis-cli flushall
+```
 
-- [ ] **AI 기반 예측 분석** (Q2 2024)
-- [ ] **모바일 앱 개발** (Q3 2024)
-- [ ] **클라우드 배포 지원** (Q4 2024)
-- [ ] **다국어 지원** (2025)
+## 🤝 **Contributing**
 
-## 📝 라이선스
+Contributions, issues, and feature requests are welcome!
 
-Copyright © 2024 Changsin Inc. All rights reserved.
+### **Development Workflow**
 
-이 소프트웨어는 상업적 용도로 개발되었으며, 저작권법의 보호를 받습니다.
+1. **Fork the repository**
+2. **Create feature branch**: `git checkout -b feature/amazing-feature`
+3. **Make changes**: Follow coding standards and add tests
+4. **Commit changes**: `git commit -m 'Add amazing feature'`
+5. **Push to branch**: `git push origin feature/amazing-feature`
+6. **Create Pull Request**: Include detailed description and screenshots
+
+### **Development Guidelines**
+
+#### **Code Standards**
+
+- ✅ **EditorConfig**: Follow project formatting rules
+- ✅ **StyleCop**: Adhere to C# coding conventions  
+- ✅ **Code Analysis**: Fix all compiler warnings
+- ✅ **Performance**: Optimize database queries and async operations
+
+#### **Testing Requirements**
+
+- ✅ **Unit Tests**: Minimum 80% code coverage required
+- ✅ **Integration Tests**: Test API endpoints and database operations
+- ✅ **Load Testing**: Performance tests for critical paths
+
+#### **Documentation**
+
+- ✅ **XML Comments**: Document all public APIs
+- ✅ **README Updates**: Update documentation for new features
+- ✅ **API Documentation**: Update OpenAPI specifications
+
+### **Commit Message Format**
+
+Follow [Conventional Commits](https://www.conventionalcommits.org/) specification:
+
+```
+feat: add temperature alert thresholds
+fix: resolve SignalR connection timeout
+docs: update API documentation
+test: add unit tests for device service
+```
+
+## 📞 **Support & Community**
+
+- **🐛 Bug Reports**: [GitHub Issues](https://github.com/codingnanyong/tr-montrg/issues)
+- **💬 Discussions**: [GitHub Discussions](https://github.com/codingnanyong/tr-montrg/discussions)
+- **📧 Email**: [codingnanyong@gmail.com](mailto:codingnanyong@gmail.com)
+
+## 📋 **Roadmap**
+
+### **2024 Development Plan**
+
+- **Q2 2024**
+  - [ ] **AI-powered Predictive Analytics**: Machine learning for failure prediction
+  - [ ] **Advanced Alerting**: Multi-level escalation and smart notifications
+
+- **Q3 2024**
+
+  - [ ] **Mobile Application**: Native iOS/Android apps for remote monitoring
+  - [ ] **Cloud Integration**: Azure/AWS deployment support
+
+- **Q4 2024**
+
+  - [ ] **Multi-tenant Architecture**: Support for multiple organizations
+  - [ ] **Enhanced Security**: Advanced authentication and authorization
+
+### **2025 Vision**
+
+- [ ] **Internationalization**: Multi-language support (Korean, English, Chinese)
+- [ ] **Edge Computing**: Local processing and edge analytics
+- [ ] **IoT Platform Integration**: Support for additional IoT protocols
+
+## 💡 **Use Cases**
+
+✅ **Power Grid Monitoring** - Real-time transformer health tracking  
+✅ **Predictive Maintenance** - AI-powered failure prediction and prevention  
+✅ **Industrial Safety** - Automated safety monitoring and emergency response  
+✅ **Energy Efficiency** - Power consumption optimization and load management  
+✅ **Compliance Reporting** - Automated regulatory compliance and documentation  
+✅ **Remote Operations** - Multi-site monitoring and centralized control  
+
+## 🏆 **Production Stats**
+
+- **Real-time Monitoring**: 24/7 transformer health tracking
+- **Multi-site Support**: Enterprise and location-specific dashboards
+- **High Availability**: 99.9% uptime with redundant systems
+- **Scalable Architecture**: Supports hundreds of concurrent devices
+- **Enterprise Security**: Role-based access control and audit trails
+
+## 📄 **License**
+
+This project is licensed under the MIT License. See [LICENSE](./LICENSE) for details.
+
+---
+
+**⚡ Enterprise Industrial Monitoring at Scale**  
+Built with ❤️ for power infrastructure reliability and safety.
